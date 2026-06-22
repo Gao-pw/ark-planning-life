@@ -80,8 +80,13 @@ jobs:
         with:
           name: siroi-codeheart-${{ matrix.platform }}
           path: |
-            src-tauri/target/release/bundle/**/*
-            src-tauri/target/universal-apple-darwin/release/bundle/**/*
+            src-tauri/target/release/bundle/**/*.msi
+            src-tauri/target/release/bundle/**/*.exe
+            src-tauri/target/release/bundle/**/*.dmg
+            src-tauri/target/release/bundle/**/*.AppImage
+            src-tauri/target/release/bundle/**/*.deb
+            src-tauri/target/release/bundle/**/*.rpm
+            src-tauri/target/universal-apple-darwin/release/bundle/**/*.dmg
           if-no-files-found: warn
           retention-days: 30
 
@@ -90,7 +95,12 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           files: |
-            src-tauri/target/release/bundle/**/*
-            src-tauri/target/universal-apple-darwin/release/bundle/**/*
+            src-tauri/target/release/bundle/**/*.msi
+            src-tauri/target/release/bundle/**/*.exe
+            src-tauri/target/release/bundle/**/*.dmg
+            src-tauri/target/release/bundle/**/*.AppImage
+            src-tauri/target/release/bundle/**/*.deb
+            src-tauri/target/release/bundle/**/*.rpm
+            src-tauri/target/universal-apple-darwin/release/bundle/**/*.dmg
           draft: false
           prerelease: false
