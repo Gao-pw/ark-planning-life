@@ -1,0 +1,14 @@
+{
+  "$schema": "../gen/schemas/desktop-schema.json",
+  "identifier": "default",
+  "description": "默认窗口能力，允许前端使用必要的窗口控制 API。",
+  "windows": ["main", "detail"],
+  "permissions": [
+    "core:default",
+    "core:menu:default",
+    "core:window:allow-close",
+    "core:window:allow-start-dragging",
+    "core:window:allow-set-position",
+    "core:window:allow-set-size"
+  ]
+}

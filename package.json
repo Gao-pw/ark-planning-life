@@ -1,0 +1,28 @@
+{
+    "scripts": {
+        "dev": "vite",
+        "tauri:dev": "tauri dev",
+        "build": "vite build",
+        "tauri:build": "tauri build",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@hackernoon/pixel-icon-library": "^1.1.0",
+        "@tauri-apps/api": "^2.5.0",
+        "@tauri-apps/plugin-opener": "^2.2.7",
+        "lucide-react": "^1.21.0",
+        "react": "^19.2.7",
+        "react-dom": "^19.2.7",
+        "typescript": "^5.8.3",
+        "vite": "^6.3.5"
+    },
+    "devDependencies": {
+        "@tailwindcss/vite": "^4.3.1",
+        "@tauri-apps/cli": "^2.5.0",
+        "@types/react": "^19.2.17",
+        "@types/react-dom": "^19.2.3",
+        "@vitejs/plugin-react": "^5.1.1",
+        "tailwindcss": "^4.3.1"
+    },
+    "packageManager": "pnpm@10.33.4"
+}

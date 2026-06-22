@@ -1,0 +1,68 @@
+{
+  "$schema": "https://schema.tauri.app/config/2",
+  "productName": "Coding Plan Widget",
+  "version": "0.1.0",
+  "identifier": "com.local.coding-plan-widget",
+  "build": {
+    "beforeDevCommand": "pnpm run dev",
+    "devUrl": "http://localhost:1420",
+    "beforeBuildCommand": "pnpm run build",
+    "frontendDist": "../dist"
+  },
+  "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Coding Plan Widget",
+        "url": "/",
+        "x": 560,
+        "y": 0,
+        "width": 420,
+        "height": 64,
+        "minWidth": 220,
+        "minHeight": 56,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": true,
+        "focus": true,
+        "shadow": false
+      },
+      {
+        "label": "detail",
+        "title": "Coding Plan Detail",
+        "url": "/?window=detail",
+        "x": 500,
+        "y": 96,
+        "width": 760,
+        "height": 340,
+        "minWidth": 760,
+        "minHeight": 340,
+        "resizable": false,
+        "decorations": false,
+        "transparent": true,
+        "alwaysOnTop": true,
+        "skipTaskbar": true,
+        "visible": false,
+        "focus": false,
+        "shadow": false
+      }
+    ],
+    "security": {
+      "csp": null
+    }
+  },
+  "bundle": {
+    "active": true,
+    "targets": "all",
+    "icon": [
+      "icons/32x32.png",
+      "icons/128x128.png",
+      "icons/128x128@2x.png",
+      "icons/icon.icns",
+      "icons/icon.ico"
+    ]
+  }
+}
