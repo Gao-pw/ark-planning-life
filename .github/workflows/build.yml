@@ -1,17 +1,21 @@
 name: Build Tauri App
 
 on:
+  # push:
+  #   branches:
+  #     - main
+  #     - master
+  # pull_request:
+  #   branches:
+  #     - main
+  #     - master
   push:
-    branches:
-      - main
-      - master
     tags:
       - 'v*'
-  pull_request:
-    branches:
-      - main
-      - master
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   build:
@@ -74,8 +78,19 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: coding-plan-widget-${{ matrix.platform }}
+          name: siroi-codeheart-${{ matrix.platform }}
           path: |
             src-tauri/target/release/bundle/**/*
             src-tauri/target/universal-apple-darwin/release/bundle/**/*
           if-no-files-found: warn
+          retention-days: 30
+
+      - name: Upload bundles to release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            src-tauri/target/release/bundle/**/*
+            src-tauri/target/universal-apple-darwin/release/bundle/**/*
+          draft: false
+          prerelease: false

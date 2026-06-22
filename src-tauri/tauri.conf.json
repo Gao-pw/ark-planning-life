@@ -1,8 +1,8 @@
 {
   "$schema": "https://schema.tauri.app/config/2",
-  "productName": "Coding Plan Widget",
+  "productName": "Siroi CodeHeart",
   "version": "0.1.0",
-  "identifier": "com.local.coding-plan-widget",
+  "identifier": "com.siroi.codeheart",
   "build": {
     "beforeDevCommand": "pnpm run dev",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,7 @@
     "windows": [
       {
         "label": "main",
-        "title": "Coding Plan Widget",
+        "title": "Siroi CodeHeart",
         "url": "/",
         "x": 560,
         "y": 0,
@@ -32,7 +32,7 @@
       },
       {
         "label": "detail",
-        "title": "Coding Plan Detail",
+        "title": "Siroi CodeHeart Detail",
         "url": "/?window=detail",
         "x": 500,
         "y": 96,
@@ -63,6 +63,14 @@
       "icons/128x128@2x.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "windows": {
+      "nsis": {
+        "languages": ["SimpChinese"]
+      },
+      "wix": {
+        "language": "zh-CN"
+      }
+    }
   }
 }

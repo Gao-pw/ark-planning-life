@@ -1,10 +1,10 @@
 [package]
-name = "coding_plan_widget"
+name = "siroi_codeheart"
 version = "0.1.0"
 edition = "2021"
 
 [lib]
-name = "coding_plan_widget_lib"
+name = "siroi_codeheart_lib"
 crate-type = ["staticlib", "cdylib", "rlib"]
 
 [build-dependencies]
