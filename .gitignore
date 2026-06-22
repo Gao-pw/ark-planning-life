@@ -44,3 +44,5 @@ debug-*.md
 *.crt
 
 README.md
+
+.trae/
