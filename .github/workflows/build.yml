@@ -78,7 +78,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: coding-plan-widget-${{ matrix.platform }}
+          name: siroi-codeheart-${{ matrix.platform }}
           path: |
             src-tauri/target/release/bundle/**/*
             src-tauri/target/universal-apple-darwin/release/bundle/**/*
