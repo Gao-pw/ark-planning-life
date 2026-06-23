@@ -1,10 +1,13 @@
 {
+    "name": "siroi-codeheart",
+    "version": "0.1.2",
     "scripts": {
         "dev": "vite",
-        "tauri:dev": "tauri dev",
+        "tauri:dev": "pnpm run version:sync && tauri dev",
         "build": "vite build",
-        "tauri:build": "tauri build",
-        "typecheck": "tsc --noEmit"
+        "tauri:build": "pnpm run version:sync && tauri build",
+        "typecheck": "tsc --noEmit",
+        "version:sync": "node scripts/sync-version.mjs"
     },
     "dependencies": {
         "@hackernoon/pixel-icon-library": "^1.1.0",
