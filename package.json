@@ -1,6 +1,6 @@
 {
     "name": "siroi-codeheart",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "scripts": {
         "dev": "vite",
         "tauri:dev": "pnpm run version:sync && tauri dev",
