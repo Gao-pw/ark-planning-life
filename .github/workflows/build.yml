@@ -65,6 +65,19 @@ jobs:
       - name: Install frontend dependencies
         run: pnpm install --frozen-lockfile
 
+      - name: Sync version from package.json
+        run: pnpm run version:sync
+
+      - name: Check tag matches package version
+        if: startsWith(github.ref, 'refs/tags/v')
+        shell: pwsh
+        run: |
+          $packageVersion = (Get-Content package.json -Raw | ConvertFrom-Json).version
+          $tagVersion = "${{ github.ref_name }}" -replace '^v', ''
+          if ($packageVersion -ne $tagVersion) {
+            throw "Tag version v$tagVersion does not match package.json version $packageVersion"
+          }
+
       - name: Typecheck
         run: pnpm run typecheck
 
@@ -78,7 +91,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: siroi-codeheart-${{ matrix.platform }}
+          name: siroi-codeheart-${{ github.ref_name }}-${{ matrix.platform }}
           path: |
             src-tauri/target/release/bundle/**/*.msi
             src-tauri/target/release/bundle/**/*.exe

@@ -43,6 +43,4 @@ debug-*.md
 *.pem
 *.crt
 
-README.md
-
 .trae/

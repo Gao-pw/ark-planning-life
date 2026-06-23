@@ -1,5 +1,7 @@
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
+#[cfg(windows)]
+use std::os::windows::process::CommandExt;
 use std::process::Command;
 use std::{env, path::PathBuf};
 use tauri::menu::{Menu, MenuItem};
@@ -90,8 +92,13 @@ fn run_usage_cli() -> Result<String, String> {
     // Windows GUI 应用启动时 PATH 可能和终端不同，因此先按 PATH 查找 arkcli / arkcli.exe。
     let cli = find_arkcli().unwrap_or_else(|| PathBuf::from("arkcli"));
 
-    let output = Command::new(&cli)
-        .args(["usage", "plan", "--product", "coding-plan"])
+    let mut command = Command::new(&cli);
+    command.args(["usage", "plan", "--product", "coding-plan"]);
+
+    #[cfg(windows)]
+    command.creation_flags(0x08000000);
+
+    let output = command
         .output()
         .map_err(|error| format!("CLI 执行失败：{}：{error}", cli.display()))?;
 
